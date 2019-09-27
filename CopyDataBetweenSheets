@@ -4,13 +4,13 @@ function CopyDiagramInside() {
   var source_sheet = ss.getSheetByName("Лист1");
   var target_sheet = ss.getSheetByName("Лист2");
   var source_range = source_sheet.getRange("B2:B143"); // Копируем с этого листа в указанный диапазон
-  var target_range = target_sheet.getRange("A1:ZZ10"); // Копируем в этот лист в указанный диапазон
+  var target_range = target_sheet.getRange("A1:ZZ1"); // Копируем в этот лист в указанный диапазон
   
   for(var i = 1; i <= 142; i++){ // Мне нужно скопировать всего 142 строки, можно подставить source_range.Length для копирования до конца данных
     var pos = i + 2; // Переменная номера ячейки для диапазона куда копировать
     var str = "B" + pos; // Позиция от куда нужно скопировать ячейку
     pos = i + 1;
-    var cell = target_range.getCell(4,pos); // Выбираем следующую ячейку - идем сверху в низ
+    var cell = target_range.getCell(1,pos); // Выбираем следующую ячейку - идем сверху в низ
     cell.setValue(source_sheet.getRange(str).getValue()); // Вставляем - идем слева на право 
   }
 
